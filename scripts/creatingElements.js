@@ -38,9 +38,10 @@ function injectInfo(finalArr, amount)
     }
 }
 
-function makeSlide(totalSlides)
-{
-    
-}
+//function to change the displayed data based on page number incrementing 
+//make variable for num of row
+//make variable to increment for each page
+//then increment for each page
+
 
 export {injectInfo, injectHere, makeSlide}
