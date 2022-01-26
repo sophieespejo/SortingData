@@ -3,12 +3,15 @@ import {injectInfo, injectHere} from "./creatingElements.js";
 
 let finalArr;
 let tempArr = [];
-let rowNum = document.getElementById('rowNum');
+let pageRange = document.getElementById('pageRange');
+let amount;
+let sortedBy = "id";
 
-async function sortByFirstNameAsc()
+async function sortByFirstNameAsc(amount)
 {
-    await fetchData();
 
+    sortedBy = "firstNameAsc";
+    await fetchData();
     let newArr = allPeople.map(obj => obj.FirstName).sort();
 
     // for(let i = 0; i < allPeople.length; i++)
@@ -34,17 +37,18 @@ async function sortByFirstNameAsc()
 
 
     let newSet = new Set(tempArr);
-    let finalArr = Array.from(newSet.values());
+    finalArr = Array.from(newSet.values());
 
     console.log(finalArr);
-    injectInfo(finalArr, rowNum.value);
-    return finalArr;
+    injectInfo(finalArr, amount);
+    return {finalArr, sortedBy};
 
     // getFinalArr(allPeople, newArr, 'FirstName');
 }
 
-async function sortByFirstNameDesc()
+async function sortByFirstNameDesc(amount)
 {
+    sortedBy = "firstNameDesc";
     await fetchData();
     console.log("worked");
     // let newArr = allPeople.map( person => {
@@ -79,15 +83,16 @@ async function sortByFirstNameDesc()
     })
 
     let newSet = new Set(tempArr);
-    let finalArr = Array.from(newSet.values());
+    finalArr = Array.from(newSet.values());
 
     console.log(finalArr);
-    injectInfo(finalArr, 20);
-    return finalArr;
+    injectInfo(finalArr, amount);
+    return {finalArr, sortedBy};
 }
 
-async function sortByLastNameAsc()
+async function sortByLastNameAsc(amount)
 {
+    sortedBy = "lastNameAsc";
     await fetchData();
     console.log("worked");
     // let newArr = allPeople.map( person => {
@@ -108,17 +113,18 @@ async function sortByLastNameAsc()
     })
 
     let newSet = new Set(tempArr);
-    let finalArr = Array.from(newSet.values());
+    finalArr = Array.from(newSet.values());
 
     console.log(finalArr);
-    injectInfo(finalArr, 20);
-    return finalArr;
+    injectInfo(finalArr, amount);
+    return {finalArr, sortedBy};
 
     // console.log(newArr);
 }
 
-async function sortByLastNameDesc()
+async function sortByLastNameDesc(amount)
 {
+    sortedBy = "lastNameDesc";
     await fetchData();
     console.log("worked");
     // let newArr = allPeople.map( person => {
@@ -138,15 +144,16 @@ async function sortByLastNameDesc()
     })
 
     let newSet = new Set(tempArr);
-    let finalArr = Array.from(newSet.values());
+    finalArr = Array.from(newSet.values());
 
     console.log(finalArr);
-    injectInfo(finalArr, 20);
-    return finalArr;
+    injectInfo(finalArr, amount);
+    return {finalArr, sortedBy};
 }
 
-async function sortByEmailAsc()
+async function sortByEmailAsc(amount)
 {
+    sortedBy = "emailAsc";
     await fetchData();
     console.log("worked");
     // let newArr = allPeople.map( person => {
@@ -166,15 +173,16 @@ async function sortByEmailAsc()
     })
 
     let newSet = new Set(tempArr);
-    let finalArr = Array.from(newSet.values());
+    finalArr = Array.from(newSet.values());
 
     console.log(finalArr);
-    injectInfo(finalArr, 20);
-    return finalArr;
+    injectInfo(finalArr, amount);
+    return {finalArr, sortedBy};
 }
 
-async function sortByEmailDesc()
+async function sortByEmailDesc(amount)
 {
+    sortedBy = "emailDesc";
     await fetchData();
     console.log("worked");
     // let newArr = allPeople.map( person => {
@@ -194,16 +202,17 @@ async function sortByEmailDesc()
     })
 
     let newSet = new Set(tempArr);
-    let finalArr = Array.from(newSet.values());
+    finalArr = Array.from(newSet.values());
 
     console.log(finalArr);
-    injectInfo(finalArr, 20);
-    return finalArr;
+    injectInfo(finalArr, amount);
+    return {finalArr, sortedBy};
 }
 
 
-async function sortByIdAsc()
+async function sortByIdAsc(amount)
 {
+    sortedBy = "idAsc";
     await fetchData();
     console.log("worked");
     // let newArr = allPeople.map( person => {
@@ -223,15 +232,16 @@ async function sortByIdAsc()
     })
 
     let newSet = new Set(tempArr);
-    let finalArr = Array.from(newSet.values());
+    finalArr = Array.from(newSet.values());
 
     console.log(finalArr);
-    injectInfo(finalArr, rowNum.value);
-    return finalArr;
+    injectInfo(finalArr, amount);
+    return {finalArr, sortedBy};
 }
 
-async function sortByAgeAsc()
+async function sortByAgeAsc(amount)
 {
+    sortedBy = "ageAsc";
     await fetchData();
     console.log("worked");
     // let newArr = allPeople.map( person => {
@@ -251,15 +261,16 @@ async function sortByAgeAsc()
     })
 
     let newSet = new Set(tempArr);
-    let finalArr = Array.from(newSet.values());
+    finalArr = Array.from(newSet.values());
 
     console.log(finalArr);
-    injectInfo(finalArr, 20);
-    return finalArr;
+    injectInfo(finalArr, amount);
+    return {finalArr, sortedBy};
 }
 
-async function sortByAgeDesc()
+async function sortByAgeDesc(amount)
 {
+    sortedBy = "ageDesc";
     await fetchData();
     console.log("worked");
     // let newArr = allPeople.map( person => {
@@ -279,16 +290,17 @@ async function sortByAgeDesc()
     })
 
     let newSet = new Set(tempArr);
-    let finalArr = Array.from(newSet.values());
+    finalArr = Array.from(newSet.values());
 
     console.log(finalArr);
-    injectInfo(finalArr, 20);
-    return finalArr;
+    injectInfo(finalArr, amount);
+    return {finalArr, sortedBy};
 }
 
 
-async function sortByIdDesc()
+async function sortByIdDesc(amount)
 {
+    sortedBy = "idDesc";
     injectHere.innerHTML = "";
     await fetchData();
     console.log("worked");
@@ -309,15 +321,16 @@ async function sortByIdDesc()
     })
 
     let newSet = new Set(tempArr);
-    let finalArr = Array.from(newSet.values());
+    finalArr = Array.from(newSet.values());
 
     console.log(finalArr);
-    injectInfo(finalArr, 20);
-    return finalArr;
+    injectInfo(finalArr, amount);
+    return {finalArr, sortedBy};
 }
 
-async function sortByHeightAsc()
+async function sortByHeightAsc(amount)
 {
+    sortedBy = "heightAsc";
     injectHere.innerHTML = "";
     await fetchData();
     console.log("worked");
@@ -338,15 +351,16 @@ async function sortByHeightAsc()
     })
 
     let newSet = new Set(tempArr);
-    let finalArr = Array.from(newSet.values());
+    finalArr = Array.from(newSet.values());
 
     console.log(finalArr);
-    injectInfo(finalArr, 20);
-    return finalArr;
+    injectInfo(finalArr, amount);
+    return {finalArr, sortedBy};
 }
 
-async function sortByHeightDesc()
+async function sortByHeightDesc(amount)
 {
+    sortedBy = "heightDesc";
     await fetchData();
     console.log("worked");
     // let newArr = allPeople.map( person => {
@@ -366,11 +380,11 @@ async function sortByHeightDesc()
     })
 
     let newSet = new Set(tempArr);
-    let finalArr = Array.from(newSet.values());
+    finalArr = Array.from(newSet.values());
 
     console.log(finalArr);
-    injectInfo(finalArr, 20);
-    return finalArr;
+    injectInfo(finalArr, amount);
+    return {finalArr, sortedBy};
 }
 
 // function getFinalArr(allPeople, newArr, whatever)
@@ -413,4 +427,4 @@ async function sortByHeightDesc()
 
 
 
-export {sortByFirstNameAsc, sortByIdAsc, sortByIdDesc, sortByLastNameAsc, sortByLastNameDesc, sortByFirstNameDesc, sortByEmailAsc, sortByEmailDesc, sortByHeightAsc, sortByHeightDesc, sortByAgeAsc, sortByAgeDesc, finalArr}
+export {sortByFirstNameAsc, sortedBy, sortByIdAsc, sortByIdDesc, sortByLastNameAsc, sortByLastNameDesc, sortByFirstNameDesc, sortByEmailAsc, sortByEmailDesc, sortByHeightAsc, sortByHeightDesc, sortByAgeAsc, sortByAgeDesc, finalArr}

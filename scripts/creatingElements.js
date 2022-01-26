@@ -42,6 +42,23 @@ function injectInfo(finalArr, amount)
 //make variable for num of row
 //make variable to increment for each page
 //then increment for each page
+let currentPage = 1;
+// let rows = amount;
+
+function displayPageData(finalArr, rows, current){
+    injectHere.innerHTML = "";
+    page ++;
+    let loopStart = rows_per_page * page;
+    let paginatedItems = finalArr.slice(loopStart, loopStart+rows_per_page);
+    for(let i = loopStart; i < loopStart + numRowsPage; i++)
+    {
+        
+    }
+}
 
 
-export {injectInfo, injectHere, makeSlide}
+
+
+
+
+export {injectInfo, injectHere}

@@ -25,7 +25,7 @@
           <table class="table table-info table-striped" id="myTable">
             <thead>
               <tr>
-                <th scope="col">ID# <i id="sortIdBtn" class="fas fa-sort-numeric-down"></i></th>
+                <th scope="col">ID# <i id="sortIdBtn" class="fas fa-sort-numeric-down-alt"></i></th>
                 <th scope="col">First <i id="sortFNameBtn" class="fas fa-sort-alpha-down"></i></th>
                 <th scope="col">Last <i id="sortLNameBtn" class="fas fa-sort-alpha-down"></i></th>
                 <th scope="col">Email <i id="sortEmailBtn" class="fas fa-sort-alpha-down"></i> </th>
@@ -49,14 +49,23 @@
                                 
                                 </div> -->
           <div class="row mt-3 justify-content-center d-flex">
-            <div class="col-6">
-              <div class="input-group mb-3 d-flex">
-                <i class="fas fa-long-arrow-alt-left"></i>
-                <span class="input-group-text" id="basic-addon1">@</span>
-                <input id = "rowNum" type="text" class="form-control" placeholder="How many rows do you want to see?" aria-label="Username" aria-describedby="basic-addon1">
+            <div class="col-3">
+              <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                <button id = "nextBtn" type="button" class="btn btn-outline-primary">Previous</button>
+                <button id= "previousBtn" type="button" class="btn btn-outline-primary">Next</button>
               </div>
-              <i class="fas fa-long-arrow-alt-right"></i>
             </div>
+            <div class="col-5">
+              <select id="pageRange" class="form-select mt-3"
+              aria-label="Default select example">
+                <option selected>How many results on a page?</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+            </select>
+            </div>  
           </div>
 
         </div>
